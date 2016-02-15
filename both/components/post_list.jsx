@@ -21,7 +21,7 @@ PostList = React.createClass({
   render() {
     return <div>
       This is the post list
-      {(this.data.posts)? this.getList() : "loading..."}
+      {(this.data.posts && Roles.userIsInRole(Meteor.userId(), 'super-admin'))? this.getList() : "loading..."}
     </div>;
   }
 });
